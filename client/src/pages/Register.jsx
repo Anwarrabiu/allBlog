@@ -76,9 +76,6 @@ function Register() {
   return (
     <main className="auth-page">
       <section className="auth-card">
-        <div className="auth-brand-mark" aria-hidden="true">
-          M
-        </div>
 
         <div className="auth-heading">
           <span className="auth-eyebrow">JOIN OUR COMMUNITY</span>

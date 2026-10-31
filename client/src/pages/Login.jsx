@@ -153,9 +153,6 @@ function Login() {
   return (
     <main className="auth-page">
       <section className="auth-card">
-        <div className="auth-brand-mark" aria-hidden="true">
-          AB
-        </div>
 
         <div className="auth-heading">
           <span className="auth-eyebrow">WELCOME BACK</span>

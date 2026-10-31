@@ -7,7 +7,7 @@ const registerUser = async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
-    // 1. Check required fields
+    //  Check required fields
     if (!username || !email || !password) {
       return res.status(400).json({
         success: false,
@@ -15,11 +15,11 @@ const registerUser = async (req, res) => {
       });
     }
 
-    // 2. Normalize the input
+    // Normalize the input
     const cleanUsername = username.trim();
     const cleanEmail = email.trim().toLowerCase();
 
-    // 3. Validate input
+    // Validate input
     if (cleanUsername.length < 3 || cleanUsername.length > 30) {
       return res.status(400).json({
         success: false,
@@ -43,7 +43,7 @@ const registerUser = async (req, res) => {
       });
     }
 
-    // 4. Check for an existing username or email
+    // Check for an existing username or email
     const existingUser = await User.findOne({
       $or: [
         { username: cleanUsername },
@@ -58,10 +58,10 @@ const registerUser = async (req, res) => {
       });
     }
 
-    // 5. Hash the password
+    // Hash the password
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    // 6. Create the user
+    // Create the user
     const user = await User.create({
       username: cleanUsername,
       email: cleanEmail,
@@ -69,7 +69,7 @@ const registerUser = async (req, res) => {
       role: "user",
     });
 
-    // 7. Send a safe response
+    // Send a safe response
     return res.status(201).json({
       success: true,
       message: "Registration successful",

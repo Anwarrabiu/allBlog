@@ -1,6 +1,7 @@
 
 const express = require("express");
-
+const router = express.Router();
+const { protect } = require("../middleware/authMiddleware");
 const {
   createPost,
   getPublishedPosts,
@@ -10,11 +11,6 @@ const {
   updatePost,
   deletePost,
 } = require("../controllers/postController");
-
-const { protect } = require("../middleware/authMiddleware");
-
-const router = express.Router();
-
 
 // PUBLIC ROUTES
     //Because Express checks routes in order, /my-posts must appear before /:id. 

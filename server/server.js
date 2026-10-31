@@ -6,7 +6,6 @@ const cookieParser = require("cookie-parser");
 const connectDB = require("./config/db");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
-const healthRoutes = require("./routes/healthRoutes");
 const authRoutes = require("./routes/authRoutes");
 const postRoutes = require("./routes/postRoutes");
 
@@ -39,12 +38,11 @@ app.use(cookieParser()); //cookie-parser reads the cookie.
 
 // Root route
 app.get("/", (req, res) => {
-  res.send("MERN Blog API is running!");
+  res.send("AllBlog API is running!");
 
 });
 
 // API routes
-app.use("/api/health", healthRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/posts", postRoutes);
 
