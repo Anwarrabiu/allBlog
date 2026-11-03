@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../config";
 
 function GuestRoute() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -14,7 +15,7 @@ function GuestRoute() {
     const checkAuthentication = async () => {
       try {
         await axios.get(
-          "http://localhost:5000/api/auth/profile",
+          `${API_URL}/api/auth/profile`,
           { withCredentials: true }
         );
 

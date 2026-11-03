@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Auth.css";
+import { API_URL } from "../config";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -32,7 +33,7 @@ function Login() {
     const checkLogin = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/auth/profile",
+          `${API_URL}/api/auth/profile`,
           { withCredentials: true }
         );
 
@@ -87,7 +88,7 @@ function Login() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        `${API_URL}/api/auth/login`,
         {
           email: trimmedEmail,
           password,

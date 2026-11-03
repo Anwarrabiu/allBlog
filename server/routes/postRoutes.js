@@ -12,10 +12,9 @@ const {
   deletePost,
 } = require("../controllers/postController");
 
-// PUBLIC ROUTES
+// Public Routes
     //Because Express checks routes in order, /my-posts must appear before /:id. 
     //Otherwise, Express may interpret my-posts as a post ID.
-
 router.get("/", getPublishedPosts);
 
 // Protected route: get the logged-in user's posts

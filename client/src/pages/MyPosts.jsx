@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./MyPosts.css";
+import { API_URL } from "../config";
 
 function MyPosts() {
   const [posts, setPosts] = useState([]);
@@ -24,7 +25,7 @@ function MyPosts() {
     const fetchMyPosts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/posts/my-posts",
+          `${API_URL}/api/posts/my-posts`,
           { withCredentials: true }
         );
 
@@ -84,7 +85,7 @@ function MyPosts() {
 
     try {
       const response = await axios.patch(
-        `http://localhost:5000/api/posts/${postId}/publish`,
+        `${API_URL}/api/posts/${postId}/publish`,
         {},
         { withCredentials: true }
       );
@@ -157,7 +158,7 @@ function MyPosts() {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/posts/${editingPostId}`,
+        `${API_URL}/api/posts/${editingPostId}`,
         { title, category, content },
         { withCredentials: true }
       );
@@ -205,7 +206,7 @@ function MyPosts() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/posts/${postId}`,
+        `${API_URL}/api/posts/${postId}`,
         { withCredentials: true }
       );
 

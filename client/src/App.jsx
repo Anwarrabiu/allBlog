@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
+import { API_URL } from "./config";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -14,9 +15,7 @@ function App() {
 
     const fetchPosts = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5000/api/posts"
-        );
+           const response = await axios.get(`${API_URL}/api/posts`);
 
         if (!cancelled) {
           setPosts(

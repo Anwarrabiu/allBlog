@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./CreatePost.css";
+import { API_URL } from "../config";
 
 function CreatePost() {
   const [title, setTitle] = useState("");
@@ -34,7 +35,7 @@ function CreatePost() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/posts",
+        `${API_URL}/api/posts`,
         {
           title: trimmedTitle,
           category,

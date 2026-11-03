@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import "./Profile.css";
+import { API_URL } from "../config";
 
 function Profile() {
   const [user, setUser] = useState(null);
@@ -17,10 +18,10 @@ function Profile() {
     const fetchProfile = async () => {
       try {
         const [profileResponse, postsResponse] = await Promise.all([
-          axios.get("http://localhost:5000/api/auth/profile", {
+          axios.get(`${API_URL}/api/auth/profile`, {
             withCredentials: true,
           }),
-          axios.get("http://localhost:5000/api/posts/my-posts", {
+          axios.get(`${API_URL}/api/posts/my-posts`, {
             withCredentials: true,
           }),
         ]);

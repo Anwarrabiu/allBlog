@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../config";
 
 function PostDetails() {
   const { id } = useParams();
@@ -20,7 +21,7 @@ function PostDetails() {
 
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/posts/${id}`
+          `${API_URL}/api/posts/${id}`
         );
 
         if (!cancelled) {
